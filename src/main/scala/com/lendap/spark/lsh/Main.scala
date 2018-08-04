@@ -4,7 +4,6 @@ import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
 
 import org.apache.spark.mllib.linalg.{Vectors, SparseVector}
-import org.apache.spark.rdd.PairRDDFunctions
 
 
 /**
@@ -20,7 +19,7 @@ object Main {
     val dataFile = "data/ml-1m.data"
     val conf = new SparkConf()
       .setAppName("LSH")
-      .setMaster("local[4]")
+      .setMaster("local[*]")
     val sc = new SparkContext(conf)
 
     //read data file in as a RDD, partition RDD across <partitions> cores
